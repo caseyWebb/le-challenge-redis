@@ -61,6 +61,10 @@
     "testMatch": [
       "**/__tests__/**/*.ts"
     ],
+    "testPathIgnorePatterns": [
+      "/dist/",
+      "/node_modules/"
+    ],
     "transform": {
       "^.+\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
