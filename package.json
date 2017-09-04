@@ -1,6 +1,6 @@
 {
   "name": "le-challenge-redis",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A redis-based strategy for node-letsencrypt for setting, retrieving, and clearing ACME challenges issued by the ACME server",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
