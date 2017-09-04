@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "importHelpers": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "downlevelIteration": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": true
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

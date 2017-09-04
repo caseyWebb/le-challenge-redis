@@ -1,0 +1,74 @@
+{
+  "name": "le-challenge-redis",
+  "version": "0.0.0",
+  "description": "A redis-based strategy for node-letsencrypt for setting, retrieving, and clearing ACME challenges issued by the ACME server",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "report-coverage": "coveralls < coverage/lcov.info"
+  },
+  "dependencies": {
+    "redis": "^2.8.0",
+    "tslib": "^1.7.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^20.0.8",
+    "@types/node": "^8.0.26",
+    "@types/redis": "^2.6.0",
+    "coveralls": "^2.13.1",
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.14",
+    "typescript": "^2.5.2"
+  },
+  "keywords": [
+    "acme",
+    "challenge",
+    "cluster",
+    "ephemeral",
+    "http",
+    "http-01",
+    "le",
+    "le-challenge",
+    "le-challenge-",
+    "le-challenge-redis",
+    "le-challenge-memory",
+    "le-challenge-database",
+    "letsencrypt",
+    "greenlock",
+    "node-greenlock",
+    "redis"
+  ],
+  "author": "Casey Webb <notcaseywebb@gmail.com> (https://caseyWebb.xyz/)",
+  "license": "WTFPL",
+  "homepage": "https://github.com/caseyWebb/le-challenge-redis#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caseyWebb/le-challenge-redis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/caseyWebb/le-challenge-redis/issues"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "testMatch": ["**/__tests__/**/*.ts"],
+    "transform": {
+      "^.+\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
+  }
+}
