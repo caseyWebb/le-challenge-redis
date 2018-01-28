@@ -11,14 +11,11 @@
     "importHelpers": true,
     "strict": true,
     "alwaysStrict": true,
-    "downlevelIteration": true,
     "noImplicitAny": false,
     "noUnusedLocals": true
   },
-  "include": [
-    "**/*.ts"
-  ],
   "exclude": [
+    "__tests__",
     "dist",
     "node_modules"
   ]

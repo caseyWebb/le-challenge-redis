@@ -24,8 +24,9 @@ Usage
 
 ```javascript
 const LE = require('letsencrypt')
+const { LetsEncryptRedisChallenge } = require('le-challenge-redis')
 
-const redisChallengeStrategy = require('le-challenge-redis').create({
+const challenge = LetsEncryptRedisChallenge.create({
   /**
    * Prefix to use for redis key
    */
@@ -39,8 +40,7 @@ const redisChallengeStrategy = require('le-challenge-redis').create({
 })
 
 LE.create({
-  server: LE.stagingServerUrl,
-  challenge: redisChallengeStrategy
+  challenge
 })
 ```
 

@@ -1,8 +1,8 @@
 import { promisify as pify } from 'util'
 import * as redis from 'redis'
-import Challenge from '../'
+import { LetsEncryptRedisChallenge } from '../src'
 
-const challenge = Challenge.create()
+const challenge = LetsEncryptRedisChallenge.create()
 const client = redis.createClient()
 
 const opts = challenge.getOptions()

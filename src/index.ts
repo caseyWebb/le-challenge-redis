@@ -5,7 +5,7 @@ export interface ILetsEncryptRedisChallengeOptions {
   redisOptions?: redis.ClientOpts
 }
 
-export default class LetsEncryptRedisChallenge {
+export class LetsEncryptRedisChallenge {
   private _options: ILetsEncryptRedisChallengeOptions = {
     prefix: 'letsencrypt-acme-challenge'
   }
