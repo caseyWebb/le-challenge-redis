@@ -1,6 +1,8 @@
 le-challenge-redis
 =====
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/caseyWebb/le-challenge-redis.svg)](https://greenkeeper.io/)
+
 [![NPM][npm-shield]][npm]
 [![License][license-shield]][license]
 [![Build Status][travis-ci-shield]][travis-ci]
