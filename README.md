@@ -5,7 +5,7 @@ le-challenge-redis
 [![License][license-shield]][license]
 [![Build][travis-ci-shield]][travis-ci]
 [![Coverage][codecov-shield]][codecov]
-[![Dependencies][greenkeeper-shield][greenkeeper]
+[![Dependencies][greenkeeper-shield]][greenkeeper]
 
 A [Redis][] strategy for [node-letsencrypt][] for setting, retrieving,
 and clearing ACME challenges issued by the ACME server
