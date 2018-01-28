@@ -1,13 +1,11 @@
 le-challenge-redis
 =====
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/caseyWebb/le-challenge-redis.svg)](https://greenkeeper.io/)
-
 [![NPM][npm-shield]][npm]
 [![License][license-shield]][license]
-[![Build Status][travis-ci-shield]][travis-ci]
-[![Coverage Status][codecov-shield]][codecov]
-[![Dependency Status][david-dm-shield]][david-dm]
+[![Build][travis-ci-shield]][travis-ci]
+[![Coverage][codecov-shield]][codecov]
+[![Dependencies][greenkeeper-shield][greenkeeper]
 
 A [Redis][] strategy for [node-letsencrypt][] for setting, retrieving,
 and clearing ACME challenges issued by the ACME server
@@ -78,5 +76,5 @@ For node-letsencrypt internals:
 [codecov]: https://codecov.io/gh/caseyWebb/le-challenge-redis
 [codecov-shield]: https://img.shields.io/codecov/c/github/caseyWebb/le-challenge-redis.svg
 
-[david-dm]: https://david-dm.org/caseyWebb/le-challenge-redis
-[david-dm-shield]: https://img.shields.io/david/caseyWebb/le-challenge-redis.svg
+[greenkeeper]: https://greenkeeper.io/
+[greenkeeper-shield]: https://badges.greenkeeper.io/caseyWebb/le-challenge-redis.svg
