@@ -17,11 +17,11 @@
     "tslib": "^1.7.1"
   },
   "devDependencies": {
-    "@types/jest": "^20.0.8",
-    "@types/node": "^8.0.26",
+    "@types/jest": "^22.1.0",
+    "@types/node": "^9.4.0",
     "@types/redis": "^2.6.0",
-    "jest": "^20.0.4",
-    "ts-jest": "^20.0.14",
+    "jest": "^22.1.4",
+    "ts-jest": "^22.0.1",
     "typescript": "^2.5.2"
   },
   "keywords": [
