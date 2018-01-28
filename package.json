@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "redis": "^2.8.0",
