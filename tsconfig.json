@@ -3,20 +3,13 @@
     "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
-    "baseUrl": "./",
     "declarationDir": "./dist",
     "outDir": "./dist",
-    "rootDir": "./src",
     "declaration": true,
     "importHelpers": true,
     "strict": true,
     "alwaysStrict": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": true
+    "typeRoots": ["@types", "node_modules/@types"]
   },
-  "exclude": [
-    "__tests__",
-    "dist",
-    "node_modules"
-  ]
+  "exclude": ["dist", "node_modules"]
 }

@@ -1,29 +1,32 @@
 language: node_js
-
 node_js:
   - stable
-
+  - lts/boron
+  - lts/carbon
+  - lts/dubnium
 services:
   - redis-server
-
+branches:
+  only:
+    - master
+    - "/v\\d+\\.\\d+/"
 cache:
   yarn: true
   directories:
     - node_modules
-
-env:
-  matrix:
-  global:
-  - secure: LHF20/U42BskU7ov0yH0PaOjOmVVP8kNwJTCVshOhEcJNJwTt1LvBSX7DxiIfxOntgLu0kZLIHjyPuESjeJYLP+1BlfACuXfg/CC2X9C1cbsoxbkF7vhpqIq7scEUW0h6d0OpxVzBzyjjYyxE14ct1KGVrylqnwrbAD5EsRPM3Byf5WFq1iMd2VWxvwn1KnluKm+7EklbsPC6X93ui7o8gDllwl55vZjw2a+JnymAoORbk5k07Vo4/5hRI4wLNEZ2hPD2FnWc30Tir/WrDU9/b/by+JLr8J+vTuAH13WdNRJ7oe1bggIahObEIj6D9RyjizO9EeUVNF7g64VbOK1aGWPYzGKCMojPadhs6rzkFoKCC6xWBMidfqKms3dkF0JE4GJVcKd0XO6AbGfdomK7TrQNh54jN4cpUhmEhGMAUS05qG9+hrCqiqVULm1A0TqFnZPzrm+jA7XLgxUk0CAYHfv17XgAdi9aeubmAD4vXAquSvPnbAiDQbH3B73k6Vk1V9fxiqu5NU83OPt8D0X+TiAhhEOIgMlCHpQr71NT3c0C1DbTFZvQmZ6LFdIz0hJwNVF+MJwnE4YUHGY0hjXbZndWfhksEtZuNlGmeEVlNrF9d6qEEfOpoeMxDDRuKO9GPk/A/lQSJXqommbhpMNBWGxlG2e5dK9liYt95UyOBI=
-
-before_script:
-- npx -p greenkeeper-lockfile greenkeeper-lockfile-update
 script:
-- yarn build
-- yarn test --coverage
+  - yarn install --ignore-optional
+  - yarn build
+  - yarn test
 after_script:
-- npx codecov
-- npx -p greenkeeper-lockfile greenkeeper-lockfile-upload
-
+  - npx codecov
 notifications:
   email: false
+deploy:
+  provider: npm
+  email: notcaseywebb@gmail.com
+  api_key:
+    secure: oQcBodz3qyAJnOv9Z5WiXA+AxQ9QLBL8K5J7GtpZGdNWNaWSm+Jq59M+MbT02Eoqr7dRAJPIBuCgBgl0F+MPu4pdhTl1WmIqyTk1Kw4l400bwLlEYbbzYHKnT88yARbLVjL2Fx13m+YD4OnnMA9GT4Y/BZBFsEeNg1yXi+LpnUPn1tue7pz3Mw0zG5F8sfKtkkOvO6+TmKec3tlBmQGa3p7gT6Qys1VA9HycmJtGRe+EWtMoYbVl2G7jtWPlfsTf9yeWhOyqLTkoUNZR+BI7Zjas83f5RX2+947U5/5BY5sSyfrZ4KGWz6CJeFN51jyVOGK6GtcHl27Hkl/Rxa148Mtpj92Hk1WwtTD+BY3Y4EBs8aRHVku5jPTg22FxMa4ibVR2vCErRTIm1z8T/kBVVhYiUlc18iqwmmU7YmBgzMV9/7Rt0gy3m3JMGbR1lkzWFuE62GpSypSSqPEYQS8Hf9KZjumra9mMggI8VgxhvC/Y9s+s8OAvs0hOwnF24NdXfV9NOrr4kZklz4jTwPqx0TYLcnuGUw/u8GVM2tikU/5qvR1MuOKFRCeh8MTtL2cYxyxssCUPzyS+19pHZ7GR23bdoUNXb0FdXn0A9NWOcRiSZCm0I+u+pQwfDI/FD7nAlgXxRDOsCP2YdGwYU/1BHrgV5+NDip+/Q9FddWWoiDs=
+  on:
+    tags: true
+    repo: caseyWebb/le-challenge-redis
