@@ -17,7 +17,6 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 install:
   - yarn install --ignore-optional
-  - yarn add bluebird
 script:
   - yarn build
   - yarn test
@@ -27,6 +26,7 @@ notifications:
   email: false
 deploy:
   provider: npm
+  skip_cleanup: true
   email: notcaseywebb@gmail.com
   api_key:
     secure: oQcBodz3qyAJnOv9Z5WiXA+AxQ9QLBL8K5J7GtpZGdNWNaWSm+Jq59M+MbT02Eoqr7dRAJPIBuCgBgl0F+MPu4pdhTl1WmIqyTk1Kw4l400bwLlEYbbzYHKnT88yARbLVjL2Fx13m+YD4OnnMA9GT4Y/BZBFsEeNg1yXi+LpnUPn1tue7pz3Mw0zG5F8sfKtkkOvO6+TmKec3tlBmQGa3p7gT6Qys1VA9HycmJtGRe+EWtMoYbVl2G7jtWPlfsTf9yeWhOyqLTkoUNZR+BI7Zjas83f5RX2+947U5/5BY5sSyfrZ4KGWz6CJeFN51jyVOGK6GtcHl27Hkl/Rxa148Mtpj92Hk1WwtTD+BY3Y4EBs8aRHVku5jPTg22FxMa4ibVR2vCErRTIm1z8T/kBVVhYiUlc18iqwmmU7YmBgzMV9/7Rt0gy3m3JMGbR1lkzWFuE62GpSypSSqPEYQS8Hf9KZjumra9mMggI8VgxhvC/Y9s+s8OAvs0hOwnF24NdXfV9NOrr4kZklz4jTwPqx0TYLcnuGUw/u8GVM2tikU/5qvR1MuOKFRCeh8MTtL2cYxyxssCUPzyS+19pHZ7GR23bdoUNXb0FdXn0A9NWOcRiSZCm0I+u+pQwfDI/FD7nAlgXxRDOsCP2YdGwYU/1BHrgV5+NDip+/Q9FddWWoiDs=
