@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/caseyWebb/le-challenge-redis/compare/v3.0.0...v3.0.1) (2019-08-21)
+
 ## [3.0.0](https://github.com/caseyWebb/le-challenge-redis/compare/v0.0.1...v3.0.0) (2019-08-21)
 
 

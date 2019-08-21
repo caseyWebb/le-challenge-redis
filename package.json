@@ -1,6 +1,6 @@
 {
   "name": "le-challenge-redis",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A redis-based strategy for node-letsencrypt for setting, retrieving, and clearing ACME challenges issued by the ACME server",
   "author": "Casey Webb <notcaseywebb@gmail.com> (https://caseyWebb.xyz/)",
   "license": "WTFPL",
