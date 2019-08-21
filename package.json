@@ -20,7 +20,7 @@
     "@types/jest": "^23.0.1",
     "@types/node": "^10.11.2",
     "@types/redis": "^2.6.0",
-    "jest": "^22.1.4",
+    "jest": "^23.6.0",
     "ts-jest": "^23.10.1",
     "typescript": "^2.5.2"
   },
