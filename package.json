@@ -113,7 +113,7 @@
     "eslint-config-profiscience": "^4.0.8",
     "husky": "^3.0.4",
     "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
+    "pretty-quick": "^2.0.0",
     "standard-version": "^7.0.0"
   },
   "peerDependencies": {
