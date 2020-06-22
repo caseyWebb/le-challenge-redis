@@ -106,7 +106,7 @@
     "typescript": "^3.5.3"
   },
   "optionalDependencies": {
-    "@commitlint/cli": "^8.1.0",
+    "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^8.1.0",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.2.1",
