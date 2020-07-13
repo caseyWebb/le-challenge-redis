@@ -107,7 +107,7 @@
   },
   "optionalDependencies": {
     "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/config-conventional": "^9.1.1",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.2.1",
     "eslint-config-profiscience": "^5.0.2",
