@@ -25,7 +25,9 @@
     "posttest:docker": "docker-compose down",
     "lint": "eslint --ignore-path .gitignore --ext .ts ./",
     "format": "pretty-quick",
-    "release": "standard-version --sign && git push --follow-tags"
+    "release": "standard-version --sign && git push --follow-tags",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "keywords": [
     "acme",
@@ -93,7 +95,8 @@
   },
   "dependencies": {
     "redis": "^3.0.2",
-    "tslib": "^2.0.1"
+    "tslib": "^2.0.1",
+    "snyk": "^1.653.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.10",
@@ -118,5 +121,6 @@
   },
   "peerDependencies": {
     "greenlock": "3.x.x"
-  }
+  },
+  "snyk": true
 }
