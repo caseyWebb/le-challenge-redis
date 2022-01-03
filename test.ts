@@ -1,11 +1,15 @@
-import { GreenlockRedisChallenge } from './index'
-
 import tester = require('acme-http-01-test')
+
+import { GreenlockRedisChallenge } from './index'
 
 const challenger = GreenlockRedisChallenge.create({
   redisOptions: {
-    host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT ? parseInt(process.env.REDIS_PORT) : undefined
+    socket: {
+      host: process.env.REDIS_HOST,
+      port: process.env.REDIS_PORT
+        ? parseInt(process.env.REDIS_PORT)
+        : undefined
+    }
   }
 })
 

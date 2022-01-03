@@ -1,8 +1,8 @@
-import * as redis from 'redis'
+import { createClient, RedisClientOptions, RedisClientType } from 'redis'
 
 export interface GreenlockRedisChallengeOptions {
   prefix?: string
-  redisOptions?: redis.ClientOpts
+  redisOptions?: RedisClientOptions<any, any>
 }
 
 export class GreenlockRedisChallenge implements ACMEChallenger {
@@ -23,11 +23,11 @@ export class GreenlockRedisChallenge implements ACMEChallenger {
   }
 
   public set({ challenge }: ACMEChallengerMethodArgs): Promise<null> {
-    return this._exec(challenge, (id, client, done): void => {
-      client.set(id, challenge.keyAuthorization as string, (err): void =>
-        done(err, null)
-      )
-    })
+    return this._exec(challenge, async (id, client) =>
+      challenge.keyAuthorization === null
+        ? client.del(id).then(() => null)
+        : client.set(id, challenge.keyAuthorization).then(() => null)
+    )
   }
 
   public get({
@@ -35,48 +35,36 @@ export class GreenlockRedisChallenge implements ACMEChallenger {
   }: ACMEChallengerMethodArgs): Promise<{ keyAuthorization: string } | null> {
     return this._exec<{ keyAuthorization: string } | null>(
       challenge,
-      (id, client, done): void => {
-        client.get(id, (err, keyAuthorization): void =>
-          done(err, keyAuthorization ? { keyAuthorization } : null)
-        )
+      async (id, client) => {
+        const keyAuthorization = await client.get(id)
+        return keyAuthorization ? { keyAuthorization } : null
       }
     )
   }
 
   public remove({ challenge }: ACMEChallengerMethodArgs): Promise<null> {
-    return this._exec(challenge, (id, client, done): void => {
-      client.del(id, (err): void => done(err, null))
-    })
+    return this._exec(challenge, (id, client) =>
+      client.del(id).then(() => null)
+    )
   }
 
-  private _exec<T = null>(
+  private async _exec<T = null>(
     challenge: ACMEChallenge,
-    fn: (
-      id: string,
-      client: redis.RedisClient,
-      done: (err: Error | null, ret: T) => void
-    ) => void
+    fn: (id: string, client: RedisClientType<any, any>) => Promise<T>
   ): Promise<T> {
     const id = this._getId(challenge)
     const client = this._createClient()
-    return new Promise((resolve, reject): void => {
-      fn(id, client, (err, ret): void => {
-        client.quit()
-        if (err) {
-          reject(err)
-        } else {
-          resolve(ret)
-        }
-      })
-    })
+    const ret = await fn(id, client)
+    client.quit()
+    return ret
   }
 
   private _getId({ identifier: { value }, token }: ACMEChallenge): string {
     return `${this._options.prefix}:${value}:${token}`
   }
 
-  private _createClient(): redis.RedisClient {
-    return redis.createClient(this._options.redisOptions)
+  private _createClient(): RedisClientType<any, any> {
+    return createClient(this._options.redisOptions)
   }
 
   public static create(
