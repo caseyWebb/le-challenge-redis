@@ -1,0 +1,41 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x, 17.x]
+
+    services:
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: yarn install, build, lint, and test
+        run: |
+          yarn install
+          yarn build
+          yarn lint
+          yarn test
+        env:
+          CI: true
+          REDIS_HOST: localhost
+          REDIS_PORT: 6379
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
