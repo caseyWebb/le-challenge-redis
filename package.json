@@ -25,7 +25,8 @@
     "posttest:docker": "docker-compose down",
     "lint": "eslint --ignore-path .gitignore --ext .ts ./",
     "format": "pretty-quick",
-    "release": "standard-version --sign && git push --follow-tags"
+    "release": "standard-version --sign && git push --follow-tags",
+    "prepare": "husky install"
   },
   "keywords": [
     "acme",
@@ -65,10 +66,6 @@
     "parserOptions": {
       "project": "./tsconfig.json"
     }
-  },
-  "husky": {
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "pre-commit": "yarn format --staged"
   },
   "jest": {
     "collectCoverage": true,
@@ -114,7 +111,7 @@
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.2.1",
     "eslint-config-profiscience": "^5.0.2",
-    "husky": "^4.0.0",
+    "husky": "^7.0.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
     "standard-version": "^9.0.0"
