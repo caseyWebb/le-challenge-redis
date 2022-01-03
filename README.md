@@ -2,7 +2,7 @@
 
 [![NPM][npm-shield]][npm]
 [![License][license-shield]][license]
-[![Build][travis-ci-shield]][travis-ci]
+[![Build][build-status-shield]][build-status]
 [![Coverage][codecov-shield]][codecov]
 
 A [Redis][] strategy for [greenlock][] for setting, retrieving,
@@ -64,7 +64,7 @@ For greenlock internals:
 [npm-shield]: https://img.shields.io/npm/v/le-challenge-redis.svg
 [license]: ./LICENSE
 [license-shield]: https://img.shields.io/npm/l/le-challenge-redis.svg
-[travis-ci]: https://travis-ci.org/caseyWebb/le-challenge-redis/
-[travis-ci-shield]: https://img.shields.io/travis/caseyWebb/le-challenge-redis/master.svg
+[build-status]: https://github.com/caseyWebb/le-challenge-redis/actions/workflows/test.yml
+[build-status-shield]: https://img.shields.io/github/workflow/status/caseyWebb/le-challenge-redis/Node%20CI/master
 [codecov]: https://codecov.io/gh/caseyWebb/le-challenge-redis
 [codecov-shield]: https://img.shields.io/codecov/c/github/caseyWebb/le-challenge-redis.svg
