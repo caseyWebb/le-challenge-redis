@@ -57,10 +57,13 @@
   },
   "eslintConfig": {
     "extends": [
-      "eslint-config-profiscience"
+      "profiscience"
     ],
     "env": {
       "jest": true
+    },
+    "parserOptions": {
+      "project": "./tsconfig.json"
     }
   },
   "husky": {
